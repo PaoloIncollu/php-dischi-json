@@ -1,27 +1,21 @@
-/*const { createApp } = Vue;
+const { createApp } = Vue;
 
 createApp({
     data() {
         return {
-            message:'Template PHP'
+          albums:[]
         };
     },
     created() {
-        this.search();
-    },
-    methods: {
-        search() {
-            axios
-                .get('URL', {
-                    params: {
-                        
-                    }
+        axios
+                .get('http://localhost/php-dischi-json/backend/api.php', {
+                    
                 })
                 .then((res) => {
-                    console.log(res.data);
+                    console.log(res.data.results);
 
-                    this= res.data;
+                    this.albums = res.data.results;
                 });
-        }
+    
     }
-}).mount('#app');*/
+}).mount('#app');
